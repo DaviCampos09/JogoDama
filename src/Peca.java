@@ -1,10 +1,10 @@
 public class Peca {
   private String corPeca;
-  private int numPecas;
+  //private int numPecas;
 
   public Peca(String cor){
     this.corPeca = cor;
-    this.numPecas = 12;
+    //this.numPecas = 12;
   }
 
   public String getCorPeca(){
@@ -12,9 +12,9 @@ public class Peca {
   }
 
 
-  public int getNumPecas(){
+  /*public int getNumPecas(){
     return numPecas;
-  }
+  }*/
 
   public String identificaPeca(){
     if(corPeca.equalsIgnoreCase("preta")){

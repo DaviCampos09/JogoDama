@@ -20,6 +20,9 @@ public class Tabuleiro {
     return tab;
  }
 
+ public void attTab(Casa[][] t){
+   tab = t;
+ }
 
  public Peca[] getPecas(){
    return pecas;
