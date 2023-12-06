@@ -28,8 +28,6 @@ public class Jogo {
        Casa[][] t = tabuleiro.getTab();
 
        if(orig.getOcupada() && !dest.getOcupada()){
-        // for(int i=0;i<t.length;i++){
-            //for(int j=0;j<t.length;j++){
                if(orig.getPeca().getCorPeca().equalsIgnoreCase("preta")){
                   t[paraX][paraY] = new Casa(orig.getPeca().getCorPeca(), true, orig.getPeca(), paraX, paraY);
                   t[x][y] = new Casa(dest.getPeca().getCorPeca(), false, dest.getPeca(), x, y);
@@ -38,8 +36,6 @@ public class Jogo {
                   t[paraX][paraY] = new Casa(orig.getPeca().getCorPeca(), true, orig.getPeca(), paraX, paraY);
                   t[x][y] = new Casa(dest.getPeca().getCorPeca(), false, dest.getPeca(), x, y);
                }
-            //}
-         //}
        }
        tabuleiro.attTab(t);
        return tabuleiro.corpoTabuleiro();
