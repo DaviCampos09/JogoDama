@@ -11,8 +11,13 @@ public class Main {
         //System.out.print("\033[H\033[2J");
         //System.out.flush();
         
-        System.out.println(j.mov(j.verificaCasa(5, 4), j.verificaCasa(4, 3)));
-
+        System.out.println(j.mov(j.verificaCasa(5, 4), j.verificaCasa(4, 5)));
+        System.out.println("\r\n\r\n");
+        System.out.println(j.mov(j.verificaCasa(2, 5), j.verificaCasa(3, 4)));
+        System.out.println("\r\n\r\n");
+        //System.out.println(j.mov(j.verificaCasa(6, 5), j.verificaCasa(5, 4)));
+        //System.out.println("\r\n\r\n");
+        System.out.println(j.verificaCaptura(j.verificaCasa(4,5), j.verificaCasa(3,4)));
     }
 
 }

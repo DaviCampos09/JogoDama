@@ -41,4 +41,58 @@ public class Jogo {
        return tabuleiro.corpoTabuleiro();
    }
 
+
+   public String verificaCaptura(Casa orig, Casa dest){
+      int x = orig.getX();
+       int y = orig.getY();
+       int paraX = dest.getX();
+       int paraY = dest.getY();
+      Casa[][] t = tabuleiro.getTab();
+    
+
+      if(paraY>y){
+       if(orig.getOcupada() && dest.getOcupada() && orig.getCorCasa().equalsIgnoreCase("branca")){
+         if(!t[x - 2][y + 2].getOcupada()){
+           t[x][y] = new Casa(t[x-2][y+2].getPeca().getCorPeca(),false,t[x-2][y+2].getPeca() , x, y); 
+           t[paraX][paraY] = new Casa(t[x-2][y+2].getPeca().getCorPeca(),false,t[x-2][y+2].getPeca() , paraX, paraY);
+           t[x-2][y+2] = new Casa(orig.getPeca().getCorPeca(), true,orig.getPeca() ,x-2, y+2);  
+         }else if(t[x -2][y + 2].getOcupada()){
+            return "Nao tem como comer";
+         }
+       }else if(orig.getOcupada() && dest.getOcupada() && orig.getCorCasa().equalsIgnoreCase("preta")){
+         if(!t[x + 2][y + 2].getOcupada()){
+           t[x][y] = new Casa(t[x+2][y+2].getPeca().getCorPeca(),false,t[x+2][y+2].getPeca() , x, y); 
+           t[paraX][paraY] = new Casa(t[x+2][y+2].getPeca().getCorPeca(),false,t[x+2][y+2].getPeca() , paraX, paraY);
+           t[x+2][y+2] = new Casa(orig.getPeca().getCorPeca(), true,orig.getPeca() ,x+2, y+2);  
+         }else if(t[x + 2][y + 2].getOcupada()){
+            return "Nao tem como comer";
+         }
+       }
+      }else if(paraY<y){
+       if(orig.getOcupada() && dest.getOcupada() && orig.getCorCasa().equalsIgnoreCase("branca")){
+         if(!t[x - 2][y - 2].getOcupada()){
+           t[x][y] = new Casa(t[x-2][y-2].getPeca().getCorPeca(),false,t[x-2][y-2].getPeca() , x, y); 
+           t[paraX][paraY] = new Casa(t[x-2][y-2].getPeca().getCorPeca(),false,t[x-2][y-2].getPeca() , paraX, paraY);
+           t[x-2][y-2] = new Casa(orig.getPeca().getCorPeca(), true,orig.getPeca() ,x-2, y-2);  
+         }else if(t[x -2][y - 2].getOcupada()){
+            return "Nao tem como comer";
+         }
+       }else if(orig.getOcupada() && dest.getOcupada() && orig.getCorCasa().equalsIgnoreCase("preta")){
+         if(!t[x + 2][y - 2].getOcupada()){
+           t[x][y] = new Casa(t[x+2][y-2].getPeca().getCorPeca(),false,t[x+2][y-2].getPeca() , x, y); 
+           t[paraX][paraY] = new Casa(t[x+2][y-2].getPeca().getCorPeca(),false,t[x+2][y-2].getPeca() , paraX, paraY);
+           t[x+2][y-2] = new Casa(orig.getPeca().getCorPeca(), true,orig.getPeca() ,x+2, y-2);  
+         }else if(t[x + 2][y - 2].getOcupada()){
+            return "Nao tem como comer";
+         }
+       }
+
+
+
+      }
+      tabuleiro.attTab(t);
+      return tabuleiro.corpoTabuleiro();
+
+   }
+
 }
