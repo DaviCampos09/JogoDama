@@ -3,6 +3,7 @@ public class Jogo {
    private Tabuleiro tabuleiro;
 
 
+
    public Jogo(Jogador j1, Jogador j2){
       this.j1 = j1;
       this.j2 = j2;
@@ -13,6 +14,15 @@ public class Jogo {
        tabuleiro.gerarTabuleiro();
        return "     =======JOGO DAMA=======\r\n\r\n"+tabuleiro.corpoTabuleiro();
    }
+
+   public Jogador getJ1(){
+      return j1;
+   }
+
+   public Jogador getJ2(){
+      return j2;
+   }
+
 
 
    public Casa verificaCasa(int x, int y){
@@ -94,5 +104,9 @@ public class Jogo {
       return tabuleiro.corpoTabuleiro();
 
    }
+
+   
+
+
 
 }

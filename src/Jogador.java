@@ -4,15 +4,15 @@ public class Jogador {
 
    public Jogador(String n){
     this.nome=n;
-    this.p = new Peca[12]; 
+    this.p = new Peca[12];
    }
 
    public String getNome(){
     return nome;
    }
 
-   public Peca[] getP(){
-    return p;
+   public Peca getP(int i){
+    return p[i];
    }
 
 }

@@ -12,6 +12,10 @@ public class Peca {
   }
 
 
+  public void attCorPeca(String c){
+    corPeca = c;
+  }
+
   /*public int getNumPecas(){
     return numPecas;
   }*/
