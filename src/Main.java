@@ -68,7 +68,7 @@ public class Main {
                        int paraX = sc.nextInt();
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
-                       j.verificaCaptura(j.verificacao(), j.verificaCasa(paraX, paraY));
+                       System.out.println(j.verificaCaptura(j.verificacao(), j.verificaCasa(paraX, paraY)));
                        cont++;
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");

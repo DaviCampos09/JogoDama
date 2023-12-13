@@ -96,13 +96,13 @@ public class Jogo {
       Casa[][] t = tabuleiro.getTab();
       
       if(verificacao()!= null){
-      /*  for(int i=0; i<t.length; i++){
-         for(int j=0; j<t.length; j++){  
-            if(t[i][j].getX()==verificacao().getX() && t[i][j].getY()==verificacao().getY()){
-               return "A peca que esta na linha "+i+" e coluna "+j+" eh obrigada a realizar uma captura\r\n";
-            }
-         }
-        }*/
+      //for(int i=0; i<t.length; i++){
+         //for(int j=0; j<t.length; j++){  
+           // if(t[i][j].getX()==verificacao().getX() && t[i][j].getY()==verificacao().getY()){
+            //   return "A peca que esta na linha "+i+" e coluna "+j+" eh obrigada a realizar uma captura\r\n";
+            //}
+         //}
+        //}
         return "A peca que esta na linha "+verificacao().getX()+" e coluna "+verificacao().getY()+" eh obrigada a realizar uma captura\r\n";
       }
       return "";
