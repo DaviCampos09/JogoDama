@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String a[]){
         Jogador j1,j2;
-        int cont=0,teste=0;
+        int cont=0;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Olá, bem vindo. Deseja:\r\n[1]Iniciar jogo\r\n[0]Sair");
@@ -12,22 +12,15 @@ public class Main {
         
          switch (opc) {
             case 1:
+
+              
                 System.out.println("Digite o nome do jogador 1:");
                 String n1 = sc.next();
                 System.out.println("Agora o nome do jogador 2:");
                 String n2 = sc.next();
                 System.out.println("Qual jogador ficara com as pecas brancas?\r\n[1]Jogador 1\r\n[2]Jogador 2");
                 int b = sc.nextInt();
-
-                /*if(b == 1){
-                  j1 = new Jogador(n1);
-                  j2 = new Jogador(n2);
-                }else{
-                  j1 = new Jogador(n1);
-                  j2 = new Jogador(n2);
-                  
-                }*/
-
+              
                 j1 = new Jogador(n1);
                 j2 = new Jogador(n2);
                 
@@ -89,7 +82,8 @@ public class Main {
                  
 
                 
-           }while(teste==0);
+           }while(!j.acabouJogo());
+           System.out.println("Jogo acabou!");
          
             break;
 

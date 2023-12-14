@@ -93,16 +93,9 @@ public class Jogo {
   }
 
    public String darParaCapturar(){
-      Casa[][] t = tabuleiro.getTab();
+      //Casa[][] t = tabuleiro.getTab();
       
       if(verificacao()!= null){
-      //for(int i=0; i<t.length; i++){
-         //for(int j=0; j<t.length; j++){  
-           // if(t[i][j].getX()==verificacao().getX() && t[i][j].getY()==verificacao().getY()){
-            //   return "A peca que esta na linha "+i+" e coluna "+j+" eh obrigada a realizar uma captura\r\n";
-            //}
-         //}
-        //}
         return "A peca que esta na linha "+verificacao().getX()+" e coluna "+verificacao().getY()+" eh obrigada a realizar uma captura\r\n";
       }
       return "";
@@ -115,10 +108,6 @@ public class Jogo {
       int paraY = dest.getY();
       Casa[][] t = tabuleiro.getTab();
     
-      if(orig == null || dest == null){
-         return "ORIGEM OU DESTINO NULO";
-      }
-
       if(paraY>y){
        if(orig.getOcupada() && dest.getOcupada() && orig.getPeca().getCorPeca().equalsIgnoreCase("branca")){
          if(!t[x - 2][y + 2].getOcupada()){
@@ -162,7 +151,29 @@ public class Jogo {
 
    }
 
-   
+   public boolean acabouJogo(){
+      Casa[][] t = tabuleiro.getTab();
+      int contP=0, contB=0;
+
+      for (int i = 0; i < t.length; i++) {
+          for (int j = 0; j < t.length; j++) {
+             if(t[i][j].getPeca().getCorPeca().equalsIgnoreCase("preta")){
+                  contP++;
+             }
+             if(t[i][j].getPeca().getCorPeca().equalsIgnoreCase("branca")){
+                  contB++;
+             }
+
+          }
+      }          
+
+      if(contP==0 || contB==0){
+               return true;
+      }else{
+         return false;
+      }
+
+   }
 
 
 
