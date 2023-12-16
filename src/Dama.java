@@ -2,12 +2,9 @@ public class Dama extends Peca{
 
     public Dama(String cor) {
         super(cor);
-        //isDama = true;
     }
 
     public void tranformaDama(Casa[][] t){
-        //Casa[][] t = tabuleiro.getTab();
-
         for(int j=0; j<t.length; j++){
           if(t[0][j].getPeca().getCorPeca().equalsIgnoreCase("branca")){
               Dama d = new Dama(t[0][j].getPeca().getCorPeca());
@@ -20,7 +17,6 @@ public class Dama extends Peca{
               
           }
         }
-        //tabuleiro.attTab(t);
     }
     
 
