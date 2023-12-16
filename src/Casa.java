@@ -49,7 +49,12 @@ public class Casa {
    }
 
    public String mostraCasa(Peca p){
-      return p.identificaPeca();
+      if(p instanceof Dama){
+        return p.identificaPeca(true);
+      }else{
+        return p.identificaPeca(false);
+      }
+      
    }
 
 }

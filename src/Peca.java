@@ -1,10 +1,8 @@
 public class Peca {
   private String corPeca;
-  //private int numPecas;
 
   public Peca(String cor){
     this.corPeca = cor;
-    //this.numPecas = 12;
   }
 
   public String getCorPeca(){
@@ -16,18 +14,25 @@ public class Peca {
     corPeca = c;
   }
 
-  /*public int getNumPecas(){
-    return numPecas;
-  }*/
-
-  public String identificaPeca(){
-    if(corPeca.equalsIgnoreCase("preta")){
+  public String identificaPeca(boolean isDama){
+    if(isDama==false){
+     if(corPeca.equalsIgnoreCase("preta")){
       return "P";
-    }else if(corPeca.equalsIgnoreCase("branca")){
+     }else if(corPeca.equalsIgnoreCase("branca")){
       return "B";
-    }else{
+     }else{
       return " ";
+     }
+    }else{
+     if(corPeca.equalsIgnoreCase("preta")){
+      return "DP";
+     }else if(corPeca.equalsIgnoreCase("branca")){
+      return "DB";
+     }else{
+      return " ";
+     }
     }
+    
   }
 
 }

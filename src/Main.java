@@ -24,6 +24,9 @@ public class Main {
                 j1 = new Jogador(n1);
                 j2 = new Jogador(n2);
                 
+                if(b==2){
+                  cont = 1;
+                }
                 
                 Jogo j = new Jogo(j1, j2);
                 
