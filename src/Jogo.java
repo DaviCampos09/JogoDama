@@ -56,10 +56,13 @@ public class Jogo {
    }
 
 
-   public Casa verificacao() {
+   public Casa verificacao(Jogador jo) {
+
+    
       Casa[][] t = tabuleiro.getTab();
   
-      for (int i = 0; i < t.length; i++) {
+      if(jo.getCorJogador().equalsIgnoreCase("branca")){
+         for (int i = 0; i < t.length; i++) {
           for (int j = 0; j < t.length; j++) {
               Casa orig = t[i][j];
               int x = orig.getX();
@@ -77,7 +80,18 @@ public class Jogo {
                               t[x - 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                           return t[x][y];
                       }
-                  } else if (orig.getOcupada() && orig.getPeca().getCorPeca().equalsIgnoreCase("preta")) {
+                  }
+              }
+            }
+         }  
+      }else if(jo.getCorJogador().equalsIgnoreCase("preta")){
+          for (int i = 0; i < t.length; i++) {
+          for (int j = 0; j < t.length; j++) {
+              Casa orig = t[i][j];
+              int x = orig.getX();
+              int y = orig.getY();
+               
+              if (orig.getOcupada() && orig.getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                       // Verificar captura na diagonal esquerda inferior
                       if (x + 2 < t.length && y - 2 >= 0 && !t[x + 2][y - 2].getOcupada() && t[x + 1][y - 1].getOcupada() &&
                               t[x + 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("branca")) {
@@ -89,16 +103,18 @@ public class Jogo {
                           return t[x][y];
                       }
                   }
-              }
           }
-      }
+         }    
+      }        
+
   
       return null;
   }
 
-   public String darParaCapturar(){
-      if(verificacao()!= null){
-        return "A peca que esta na linha "+verificacao().getX()+" e coluna "+verificacao().getY()+" eh obrigada a realizar uma captura\r\n";
+   public String darParaCapturar(Jogador jo){
+      if(verificacao(jo)!= null){
+         
+        return "A peca que esta na linha "+verificacao(jo).getX()+" e coluna "+verificacao(jo).getY()+" eh obrigada a realizar uma captura\r\n";
       }
       return "";
    }

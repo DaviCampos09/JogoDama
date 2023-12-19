@@ -1,18 +1,17 @@
 public class Jogador {
-   private String nome;
-   private Peca[] p;
+   private String nome, corJog;
 
-   public Jogador(String n){
+   public Jogador(String n, String c){
     this.nome=n;
-    this.p = new Peca[12];
+    this.corJog = c;
    }
 
    public String getNome(){
     return nome;
    }
 
-   public Peca getP(int i){
-    return p[i];
+   public String getCorJogador(){
+    return corJog;
    }
 
 }
