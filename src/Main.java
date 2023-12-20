@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String a[]){
         Jogador j1,j2;
-        int cont=0;
+        int cont=0,opcP;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Olá, bem vindo. Deseja:\r\n[1]Iniciar jogo\r\n[0]Sair");
@@ -44,12 +44,27 @@ public class Main {
                     System.out.println("Vez do jogador "+j1.getNome());
                     System.out.println(j.darParaCapturar(j1));
                      if(!j.darParaCapturar(j1).isEmpty()){
+                      if(j.getCapturas().size()==1){
                        System.out.println("Digite a linha da peca que precisa capturar:");
                        int paraX = sc.nextInt();
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
-                       System.out.println(j.verificaCaptura(j.verificacao(j1), j.verificaCasa(paraX, paraY)));
+                       System.out.println(j.verificaCaptura(j.verificacao(j1).get(0), j.verificaCasa(paraX, paraY)));
                        cont++;
+                      }else{
+                       System.out.println("Sendo:");
+                       for(int i=0; i<j.getCapturas().size(); i++){
+                        System.out.println(i+1+": "+j.getCapturas().get(i).formaCasa());
+                       }
+                       System.out.println("Escolha qual casa deseja usar para realizar a captura: ");
+                       opcP = sc.nextInt();
+                       System.out.println("Digite a linha da peca que precisa capturar:");
+                       int paraX = sc.nextInt();
+                       System.out.println("Agora a coluna da peca que precisa capturar:");
+                       int paraY = sc.nextInt(); 
+                       System.out.println(j.verificaCaptura(j.verificacao(j1).get(opcP-1), j.verificaCasa(paraX, paraY)));
+                       cont++;
+                      } 
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");
                        int x = sc.nextInt();
@@ -66,13 +81,28 @@ public class Main {
                 }else{
                     System.out.println("Vez do jogador "+j2.getNome());
                     System.out.println(j.darParaCapturar(j2));
-                     if(!j.darParaCapturar(j2).isEmpty()){
+                    if(!j.darParaCapturar(j2).isEmpty()){
+                      if(j.getCapturas().size()==1){
                        System.out.println("Digite a linha da peca que precisa capturar:");
                        int paraX = sc.nextInt();
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
-                       System.out.println(j.verificaCaptura(j.verificacao(j2), j.verificaCasa(paraX, paraY)));
+                       System.out.println(j.verificaCaptura(j.verificacao(j2).get(0), j.verificaCasa(paraX, paraY)));
                        cont++;
+                      }else{
+                       System.out.println("Sendo:");
+                       for(int i=0; i<j.getCapturas().size(); i++){
+                        System.out.println(i+1+": "+j.getCapturas().get(i).formaCasa());
+                       }
+                       System.out.println("Escolha qual casa deseja usar para realizar a captura: ");
+                       opcP = sc.nextInt();
+                       System.out.println("Digite a linha da peca que precisa capturar:");
+                       int paraX = sc.nextInt();
+                       System.out.println("Agora a coluna da peca que precisa capturar:");
+                       int paraY = sc.nextInt(); 
+                       System.out.println(j.verificaCaptura(j.verificacao(j2).get(opcP-1), j.verificaCasa(paraX, paraY)));
+                       cont++;
+                      } 
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");
                        int x = sc.nextInt();

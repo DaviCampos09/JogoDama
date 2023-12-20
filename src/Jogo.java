@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 public class Jogo {
    private Jogador j1,j2;
    private Tabuleiro tabuleiro;
    private Dama d;
+   private ArrayList<Casa> capturas = new ArrayList<Casa>();
 
 
 
@@ -25,7 +28,9 @@ public class Jogo {
       return j2;
    }
 
-
+   public ArrayList<Casa> getCapturas(){
+      return capturas;
+   }
 
    public Casa verificaCasa(int x, int y){
       Casa[][] t = tabuleiro.getTab();
@@ -56,8 +61,8 @@ public class Jogo {
    }
 
 
-   public Casa verificacao(Jogador jo) {
-
+   public ArrayList<Casa> verificacao(Jogador jo) {
+      capturas.clear();
     
       Casa[][] t = tabuleiro.getTab();
   
@@ -73,30 +78,32 @@ public class Jogo {
                       // Verificar captura na diagonal esquerda superior
                       if (x - 2 >= 0 && y - 2 >= 0 && !t[x - 2][y - 2].getOcupada() && t[x - 1][y - 1].getOcupada() &&
                               t[x - 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
-                          return t[x][y];
+                           capturas.add(t[x][y]);
                       }
                       // Verificar captura na diagonal direita superior
                       if (x - 2 >= 0 && y + 2 < 8 && !t[x - 2][y + 2].getOcupada() && t[x - 1][y + 1].getOcupada() &&
                               t[x - 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
-                          return t[x][y];
+                              
+                           capturas.add(t[x][y]);   
                       }
 
                       // Verificar captura na diagonal esquerda inferior
                       if (x + 2 < t.length && y - 2 >= 0 && !t[x + 2][y - 2].getOcupada() && t[x + 1][y - 1].getOcupada() &&
                               t[x + 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
-                          return t[x][y];
+                           capturas.add(t[x][y]);
                       }
 
                        // Verificar captura na diagonal direita inferior
                       if (x + 2 < t.length && y + 2 < t.length && !t[x + 2][y + 2].getOcupada() && t[x + 1][y + 1].getOcupada() &&
                               t[x + 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
-                          return t[x][y];
+                           capturas.add(t[x][y]);
                       }
-
+                     
                   }
               }
             }
          }  
+         return capturas;
       }else if(jo.getCorJogador().equalsIgnoreCase("preta")){
           for (int i = 0; i < t.length; i++) {
             for (int j = 0; j < t.length; j++) {
@@ -108,28 +115,30 @@ public class Jogo {
                       // Verificar captura na diagonal esquerda inferior
                       if (x + 2 < t.length && y - 2 >= 0 && !t[x + 2][y - 2].getOcupada() && t[x + 1][y - 1].getOcupada() &&
                               t[x + 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("branca")) {
-                          return t[x][y];
+                          capturas.add(t[x][y]);
                       }
                       // Verificar captura na diagonal direita inferior
                       if (x + 2 < t.length && y + 2 < t.length && !t[x + 2][y + 2].getOcupada() && t[x + 1][y + 1].getOcupada() &&
                               t[x + 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("branca")) {
-                          return t[x][y];
+                          capturas.add(t[x][y]);
                       }
 
                       // Verificar captura na diagonal esquerda superior
                       if (x - 2 >= 0 && y - 2 >= 0 && !t[x - 2][y - 2].getOcupada() && t[x - 1][y - 1].getOcupada() &&
                               t[x - 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("branca")) {
-                          return t[x][y];
+                          capturas.add(t[x][y]);
                       }
 
                       // Verificar captura na diagonal direita superior
                       if (x - 2 >= 0 && y + 2 < 8 && !t[x - 2][y + 2].getOcupada() && t[x - 1][y + 1].getOcupada() &&
                               t[x - 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("branca")) {
-                          return t[x][y];
+                          capturas.add(t[x][y]);
                       }
+                     
                   }
             }
-         }    
+         } 
+         return capturas;   
       }        
 
   
@@ -137,9 +146,18 @@ public class Jogo {
   }
 
    public String darParaCapturar(Jogador jo){
-      if(verificacao(jo)!= null){
-         
-        return "A peca que esta na linha "+verificacao(jo).getX()+" e coluna "+verificacao(jo).getY()+" eh obrigada a realizar uma captura\r\n";
+      if(verificacao(jo)!= null && !capturas.isEmpty()){
+         if(capturas.size()==1){
+            return "A peca "+capturas.get(0).formaCasa()+" tem obrigacao de realizar uma captura\r\n";
+         }else{
+            StringBuilder capturasStr = new StringBuilder("As pecas ");
+            for (Casa casa : capturas) {
+                capturasStr.append(casa.formaCasa()).append(", ");
+            }
+            capturasStr.delete(capturasStr.length() - 2, capturasStr.length()); // Remover a última vírgula e espaço
+            capturasStr.append(" sao obrigadas a realizar uma captura. Escolha uma.\r\n");
+            return capturasStr.toString();
+         }   
       }
       return "";
    }
