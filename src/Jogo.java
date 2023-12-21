@@ -80,35 +80,34 @@ public class Jogo {
               Casa orig = t[i][j];
               int x = orig.getX();
               int y = orig.getY();
-  
-              //if (x >= 0 && x <= 7 && y >= 0 && y <= 7) {
-                  if (orig.getOcupada() && orig.getPeca().getCorPeca().equalsIgnoreCase("branca")) {
-                      // Verificar captura na diagonal esquerda superior
-                      if (x - 2 >= 0 && y - 2 >= 0 && !t[x - 2][y - 2].getOcupada() && t[x - 1][y - 1].getOcupada() &&
+
+              //quando a origem esta ocupada e sua peca eh branca.
+              if (orig.getOcupada() && orig.getPeca().getCorPeca().equalsIgnoreCase("branca")) {
+                  // Verificar captura na diagonal esquerda superior
+                  if (x - 2 >= 0 && y - 2 >= 0 && !t[x - 2][y - 2].getOcupada() && t[x - 1][y - 1].getOcupada() &&
                               t[x - 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                            capturas.add(t[x][y]);
                       }
-                      // Verificar captura na diagonal direita superior
-                      if (x - 2 >= 0 && y + 2 < 8 && !t[x - 2][y + 2].getOcupada() && t[x - 1][y + 1].getOcupada() &&
+                  // Verificar captura na diagonal direita superior
+                  if (x - 2 >= 0 && y + 2 < 8 && !t[x - 2][y + 2].getOcupada() && t[x - 1][y + 1].getOcupada() &&
                               t[x - 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                               
                            capturas.add(t[x][y]);   
                       }
 
-                      // Verificar captura na diagonal esquerda inferior
-                      if (x + 2 < t.length && y - 2 >= 0 && !t[x + 2][y - 2].getOcupada() && t[x + 1][y - 1].getOcupada() &&
+                  // Verificar captura na diagonal esquerda inferior
+                  if (x + 2 < t.length && y - 2 >= 0 && !t[x + 2][y - 2].getOcupada() && t[x + 1][y - 1].getOcupada() &&
                               t[x + 1][y - 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                            capturas.add(t[x][y]);
                       }
 
-                       // Verificar captura na diagonal direita inferior
-                      if (x + 2 < t.length && y + 2 < t.length && !t[x + 2][y + 2].getOcupada() && t[x + 1][y + 1].getOcupada() &&
+                  // Verificar captura na diagonal direita inferior
+                  if (x + 2 < t.length && y + 2 < t.length && !t[x + 2][y + 2].getOcupada() && t[x + 1][y + 1].getOcupada() &&
                               t[x + 1][y + 1].getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                            capturas.add(t[x][y]);
                       }
                      
                   }
-              //}
             }
          }  
          return capturas;//retorna a lista com todas possiveis capturas das pecas brancas.
@@ -122,7 +121,8 @@ public class Jogo {
               Casa orig = t[i][j];
               int x = orig.getX();
               int y = orig.getY();
-               
+
+              //quando a origem esta ocupada e sua peca eh preta. 
               if (orig.getOcupada() && orig.getPeca().getCorPeca().equalsIgnoreCase("preta")) {
                       // Verificar captura na diagonal esquerda inferior
                       if (x + 2 < t.length && y - 2 >= 0 && !t[x + 2][y - 2].getOcupada() && t[x + 1][y - 1].getOcupada() &&
