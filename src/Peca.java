@@ -20,19 +20,19 @@ public class Peca {
   public String identificaPeca(boolean isDama){
     if(isDama==false){
      if(corPeca.equalsIgnoreCase("preta")){
-      return "P";
+      return "P"; // se nao eh dama e eh preta entao retorna P.
      }else if(corPeca.equalsIgnoreCase("branca")){
-      return "B";
+      return "B"; // se nao eh dama e eh branca entao retorna B.
      }else{
-      return " ";
+      return " "; // se nao eh dama e nem branca ou preta entao retorna um caractere vazio.
      }
     }else{
      if(corPeca.equalsIgnoreCase("preta")){
-      return "DP";
+      return "DP"; // se eh dama e eh preta entao retorna DP.
      }else if(corPeca.equalsIgnoreCase("branca")){
-      return "DB";
+      return "DB"; // se eh dama e eh branca entao retorna DB.
      }else{
-      return " ";
+      return " "; // se eh dama, mas nao eh nem branca nem preta entao retorna um caractere vazio.
      }
     }
     
