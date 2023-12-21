@@ -65,9 +65,9 @@ public String corpoTabuleiro() {
      }
       tabuleiroString.append("| ");
        for (int j = 0; j < tab[i].length; j++) {
-           Peca p = tab[i][j].getPeca();
+           Peca p = tab[i][j].getPeca();//para ter acesso as pecas contidas nas casas do tabuleiro. 
  
-           tabuleiroString.append(tab[i][j].mostraCasa(p)).append(" | ");
+           tabuleiroString.append(tab[i][j].mostraCasa(p)).append(" | ");//cada casa tem a identificacao correspondente de sua peca.
        }
        tabuleiroString.append("\n");
    }
