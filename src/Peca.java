@@ -9,11 +9,14 @@ public class Peca {
     return corPeca;
   }
 
-
+  //metodo para atualizar a cor da peca quando necessario.
   public void attCorPeca(String c){
     corPeca = c;
   }
 
+  //metodo resposanvel por identificar se a peca eh preta, branca ou nula e, alem disso, se eh dama ou nao
+  //e, com isso, retornar uma string que corresponde a uma identificacao para cada uma, a qual sera usada
+  //no metodo mostraCasa()
   public String identificaPeca(boolean isDama){
     if(isDama==false){
      if(corPeca.equalsIgnoreCase("preta")){
