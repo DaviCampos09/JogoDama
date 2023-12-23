@@ -39,18 +39,23 @@ public class Main {
                 
                 System.out.println(j.iniciarJogo());
                do{
-                
+              
                 if(cont%2==0){
+                  
                     System.out.println("Vez do jogador "+j1.getNome());
-                    System.out.println(j.darParaCapturar(j1));
                      if(!j.darParaCapturar(j1).isEmpty()){
+                      //do{
+                      while(!j.darParaCapturar(j1).isEmpty()){
+                      System.out.println(j.darParaCapturar(j1));  
                       if(j.getCapturas().size()==1){
                        System.out.println("Digite a linha da peca que precisa capturar:");
                        int paraX = sc.nextInt();
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j1).get(0), j.verificaCasa(paraX, paraY)));
-                       cont++;
+                      
+                       //cont++;
+                       
                       }else{
                        System.out.println("Sendo:");
                        for(int i=0; i<j.getCapturas().size(); i++){
@@ -63,8 +68,14 @@ public class Main {
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j1).get(opcP-1), j.verificaCasa(paraX, paraY)));
-                       cont++;
+                       //cont++;
                       } 
+                      if(!j.darParaCapturar(j1).isEmpty()){
+                        System.out.println("Ainda ha capturas a fazer");
+                        
+                      }
+                      }//while(!j.getCapturas().isEmpty());
+                      cont++;
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");
                        int x = sc.nextInt();
@@ -78,17 +89,21 @@ public class Main {
                        System.out.println(j.mov(j.verificaCasa(x, y), j.verificaCasa(paraX, paraY)));
                        cont++; 
                      }
+                 
                 }else{
+                  
                     System.out.println("Vez do jogador "+j2.getNome());
-                    System.out.println(j.darParaCapturar(j2));
                     if(!j.darParaCapturar(j2).isEmpty()){
+                      //do{
+                      while(!j.darParaCapturar(j2).isEmpty()){  
+                      System.out.println(j.darParaCapturar(j2));  
                       if(j.getCapturas().size()==1){
                        System.out.println("Digite a linha da peca que precisa capturar:");
                        int paraX = sc.nextInt();
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j2).get(0), j.verificaCasa(paraX, paraY)));
-                       cont++;
+                       //cont++;
                       }else{
                        System.out.println("Sendo:");
                        for(int i=0; i<j.getCapturas().size(); i++){
@@ -101,8 +116,14 @@ public class Main {
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j2).get(opcP-1), j.verificaCasa(paraX, paraY)));
-                       cont++;
+                       //cont++;
                       } 
+
+                      if(!j.darParaCapturar(j2).isEmpty()){
+                        System.out.println("Ainda ha captura(s) a fazer:");
+                      }
+                      }//while(!j.getCapturas().isEmpty());
+                      cont++;
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");
                        int x = sc.nextInt();
@@ -118,9 +139,9 @@ public class Main {
 
                      }
                     
-                }
+                //}
                  
-
+            }
                 
            }while(!j.acabouJogo());
            System.out.println("Jogo acabou!");
