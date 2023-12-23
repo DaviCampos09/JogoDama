@@ -54,7 +54,7 @@ public class Main {
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j1).get(0), j.verificaCasa(paraX, paraY)));
                       
-                       //cont++;
+                       
                        
                       }else{
                        System.out.println("Sendo:");
@@ -68,13 +68,13 @@ public class Main {
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j1).get(opcP-1), j.verificaCasa(paraX, paraY)));
-                       //cont++;
+                      
                       } 
                       if(!j.darParaCapturar(j1).isEmpty()){
-                        System.out.println("Ainda ha capturas a fazer");
+                        System.out.println("Ainda ha capturas a fazer:");
                         
                       }
-                      }//while(!j.getCapturas().isEmpty());
+                      }
                       cont++;
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");
@@ -103,7 +103,7 @@ public class Main {
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j2).get(0), j.verificaCasa(paraX, paraY)));
-                       //cont++;
+                       
                       }else{
                        System.out.println("Sendo:");
                        for(int i=0; i<j.getCapturas().size(); i++){
@@ -116,13 +116,13 @@ public class Main {
                        System.out.println("Agora a coluna da peca que precisa capturar:");
                        int paraY = sc.nextInt(); 
                        System.out.println(j.verificaCaptura(j.verificacao(j2).get(opcP-1), j.verificaCasa(paraX, paraY)));
-                       //cont++;
+                       
                       } 
 
                       if(!j.darParaCapturar(j2).isEmpty()){
                         System.out.println("Ainda ha captura(s) a fazer:");
                       }
-                      }//while(!j.getCapturas().isEmpty());
+                      }
                       cont++;
                      }else{
                        System.out.println("Digite a linha da peca que deseja mover:");
@@ -139,7 +139,7 @@ public class Main {
 
                      }
                     
-                //}
+             
                  
             }
                 

@@ -5,7 +5,7 @@ public class Dama extends Peca{
     }
 
     //metodo para verificar se alguma peca deve virar dama ou nao.
-    public void tranformaDama(Casa[][] t){
+    public void transformaDama(Casa[][] t){
         for(int j=0; j<t.length; j++){
           if(t[0][j].getPeca().getCorPeca().equalsIgnoreCase("branca")){
               Dama d = new Dama(t[0][j].getPeca().getCorPeca());
