@@ -316,6 +316,7 @@ public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
             return capturasStr.toString();
          }   
       }
+      
       return "";//caso tenha tido um problema no metodo de verificar as capturas ou a lista esteja vazia, retorna um caractere vazio.
    }
 
