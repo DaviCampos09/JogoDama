@@ -67,7 +67,7 @@ public class Jogo {
 
 
    // Método para verificar as possíveis capturas de uma dama
-/*public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
+public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
    capturas.clear(); // Limpa a lista de capturas
 
    Casa[][] t = tabuleiro.getTab();
@@ -77,9 +77,9 @@ public class Jogo {
 
    
    // Itera sobre os passos para as diagonais
-   for (int[] passo : passos) {
-       int passoX = passo[0];
-       int passoY = passo[1];
+   for (int k = 0; k < passos.length; k++) {
+       int passoX = passos[k][0];
+       int passoY = passos[k][1];
 
        int i = x + passoX;
        int j = y + passoY;
@@ -99,8 +99,8 @@ public class Jogo {
                    int posicaoAposPecaY = j + passoY;
 
                    // Verifica se a posição após a peça atual está dentro dos limites do tabuleiro
-                   if (posicaoAposPecaX >= 0 && posicaoAposPecaX < t.length &&
-                       posicaoAposPecaY >= 0 && posicaoAposPecaY < t[i].length) {
+                   if (posicaoAposPecaX >= 0 && posicaoAposPecaX < 8 &&
+                       posicaoAposPecaY >= 0 && posicaoAposPecaY < 8) {
                        
                        Casa casaAposPeca = t[posicaoAposPecaX][posicaoAposPecaY];
 
@@ -108,6 +108,8 @@ public class Jogo {
                        if (!casaAposPeca.getOcupada()) {
                            capturas.add(t[x][y]); // Adiciona a posição após a captura à lista de capturas
                            //break; // Sai do loop, pois a captura foi encontrada
+                       }else{
+                        break;
                        }
                    }
                } else {
@@ -122,10 +124,10 @@ public class Jogo {
    
 
    return capturas; // Retorna a lista com as possíveis capturas da dama
-} */
+} 
     
 
-public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
+/*public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
    capturas.clear(); // Limpa a lista de capturas
 
    Casa[][] t = tabuleiro.getTab();
@@ -180,7 +182,7 @@ public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
    }
 
    return capturas; // Retorna a lista com as possíveis capturas da dama
-}
+}*/
 
 
 
