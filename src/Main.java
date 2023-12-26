@@ -143,10 +143,23 @@ public class Main {
                  
             }
                 
-           }while(!j.acabouJogo());
-           System.out.println("Jogo acabou!");
-         
-            break;
+           }while(j.acabouJogo().equalsIgnoreCase(""));
+
+           if(j.acabouJogo().equalsIgnoreCase("branca")){
+            if(j1.getCorJogador().equalsIgnoreCase("branca")){
+              System.out.println("Jogo acabou!\r\nO vencedor foi "+j1.getNome());
+            }else{
+              System.out.println("Jogo acabou!\r\nO vencedor foi "+j2.getNome());
+            }
+           }else{
+            if(j1.getCorJogador().equalsIgnoreCase("preta")){
+              System.out.println("Jogo acabou!\r\nO vencedor foi "+j1.getNome());
+            }else{
+              System.out.println("Jogo acabou!\r\nO vencedor foi "+j2.getNome());
+            }
+           }
+
+          break;
 
 
 

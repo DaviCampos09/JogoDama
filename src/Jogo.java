@@ -589,7 +589,7 @@ public String realizarCapturaDama(Casa orig, Casa dest) {
 
 
    //metodo para verificar quando o jogo acabar.
-   public boolean acabouJogo(){
+   public String acabouJogo(){
       Casa[][] t = tabuleiro.getTab();
       int contP=0, contB=0;//um contador para as pecas pretas e outro para as brancas.
 
@@ -605,12 +605,15 @@ public String realizarCapturaDama(Casa orig, Casa dest) {
           }
       }          
 
-      if(contP==0 || contB==0){
-               return true;//se nao houver mais pecas brancas ou pretas entao eh porque o jogo acabou.
-      }else{
-         return false;//caso ainda haja pecas pretas e brancas ainda nao acabou o jogo.
+      if(contP==0){
+          return "branca";//se nao houver mais pecas pretas entao eh porque o jogo acabou e o vencedor eh o de peca branca.
+      }
+      if(contB==0){
+         return "preta";//se nao houver mais pecas brancas entao eh porque o jogo acabou e o vencedor eh o de peca preta.
       }
 
+
+      return "";
    }
 
 
