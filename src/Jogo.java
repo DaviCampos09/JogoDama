@@ -203,7 +203,7 @@ public void verificacaoDama(int x, int y, String corDama) {
               int x = orig.getX();
               int y = orig.getY();
 
-
+           //se a peca for uma dama entao a verificacao dela eh feita de forma diferente.
            if(orig.getPeca() instanceof Dama){
              verificacaoDama(orig.getX(), orig.getY(),jo.getCorJogador());
           
@@ -249,7 +249,7 @@ public void verificacaoDama(int x, int y, String corDama) {
               int x = orig.getX();
               int y = orig.getY();
 
-
+            //se a peca for uma dama entao a verificacao dela eh feita de forma diferente.
             if(orig.getPeca() instanceof Dama){
              verificacaoDama(orig.getX(), orig.getY(),jo.getCorJogador());
 
