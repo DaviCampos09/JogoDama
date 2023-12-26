@@ -67,8 +67,8 @@ public class Jogo {
 
 
    // Método para verificar as possíveis capturas de uma dama
-public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
-   capturas.clear(); // Limpa a lista de capturas
+public void verificacaoDama(int x, int y, String corDama) {
+   //capturas.clear(); // Limpa a lista de capturas
 
    Casa[][] t = tabuleiro.getTab();
 
@@ -123,7 +123,7 @@ public ArrayList<Casa> verificacaoDama(int x, int y, String corDama) {
    }
    
 
-   return capturas; // Retorna a lista com as possíveis capturas da dama
+   //return capturas; // Retorna a lista com as possíveis capturas da dama
 } 
     
 
